@@ -121,7 +121,7 @@
 .header__navbar-item-link:hover,
 .header__navbar-icon-link:hover,
 .header__navbar-tohover:hover{
-    background-color: #333;
+    opacity: 0.6;
     cursor: pointer;
 }
 .header__navbar-icon-link{
@@ -844,6 +844,19 @@ color: #ccc;
     background-color: var(--white-color);
     margin-top: 10px;
     position: relative;
+   box-shadow: 0 0 3px 2px #ccc;
+
+   transition: transform linear 0.1s;
+   display: block;
+   text-decoration: none;
+   cursor: pointer;
+
+}
+.home-products{
+    margin-bottom: 10px;
+}
+.home-product-item:hover{
+   transform: translateY(-3px);
 
 }
 .home-product-item__img img{
@@ -916,23 +929,62 @@ color: #ccc;
 }
 .home-product-item__favourite{
     position: absolute;
-    background-color: var(--primary--color);
+    color: var(--primary--color);
+    background-color: currentColor;
     top: 10px;
     left: -4px;
-    color: var(--white-color);
     font-size: 1.2rem;
     font-weight: 500;
     padding-right: 6px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
+.home-product-item__favourite::before{
+    content: "";
+    display: block;
+    position: absolute;
+    border-top: 10px solid currentColor;
+    border-left: 5px solid transparent;
+    left: 0;
+    bottom: -10px;
+    filter: brightness(60%);
+}
+.home-product-item__favourite span{
+    color: var(--white-color);
+}
 .home-product-item__favourite i{
     font-size: 0.9rem;
     margin-left: 5px;
+    color: var(--white-color);
 }
 .home-product-item__sale-off{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 36px;
+    background-color: rgba(255, 216, 64, 0.94);
+    color: var(--text-color);
+    font-size: 1.3rem;
+    text-align: center;
+}
+.home-product-item__sale-off::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    display: block;
+    border-width: 0 20px 8px;
+    border-style: solid;
+    border-color: transparent rgba(255, 216, 64, 0.94) transparent rgba(255, 216, 64, 0.94);
 }
 .home-product-item__sale-off-percent{
+    color: #ee4d2d;
+    font-weight: 600;
+    line-height: 1.3rem;
 }
 .home-product-item__sale-off-label{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white-color);
 }
