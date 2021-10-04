@@ -121,7 +121,7 @@
 .header__navbar-item-link:hover,
 .header__navbar-icon-link:hover,
 .header__navbar-tohover:hover{
-    opacity: 0.6;
+    background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 .header__navbar-icon-link{
@@ -146,7 +146,8 @@
     left: 0;
     border-radius: 3px;
     display: none;
-    z-index: 1;
+    z-index: 2;
+    box-shadow: 0 0 1px 2px black;
 
 }
 .header__qr::before{
@@ -504,6 +505,7 @@
     border-radius: 2px;
     box-shadow: 0 0 3px black;
     display: none;
+    z-index: 1;
 }
 .header__cart-list--no-cart img{
     width: 50%;
@@ -533,6 +535,8 @@
 .header__cart-list-item{
     list-style: none;
     padding: 0;
+    overflow-y: auto;
+    height: 50vh;
     
 
 }
@@ -566,6 +570,16 @@ border: 1px solid #ccc;
 }
 .header__cart-item-name{
     font-size: 1.1rem;
+    line-height: 1.2rem;
+    max-height: 2.4rem;
+    overflow: hidden;
+    flex: 1;
+    text-align: left;
+    /* dau 3 cham */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  
 
 }
 .header__cart-item-price{
@@ -698,6 +712,10 @@ border: 1px solid #ccc;
    margin-top: 3px;
    border-radius: 5px;
    display: none;
+   position: absolute;
+   z-index: 1
+   ;
+   
     
 }
 .header__search-history-list{
@@ -729,6 +747,7 @@ border: 1px solid #ccc;
 }
 .header__search-input:focus ~ .header__search-history{
     display: block;
+   
 
 }
 
@@ -749,20 +768,22 @@ border: 1px solid #ccc;
     margin: 0;
     list-style: none;
     padding: 0 0 8px 0;
-    margin-left: 12px;
+    
 }
 .category-list .category-item__link{
     text-decoration: none;
 }
 .category__heading{
-    font-size: 1.6rem;
-    padding: 12px 8px;
+    font-size: 1.4rem;
+    padding: 12px 8px 0;
     margin-top: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    font-weight: 600;
+    
 }
 .category__heading-icon{
     font-size: 1.4rem;
-    margin-right: 5px;
+   padding-right: 0;
     border-bottom: none;
     
 }
@@ -770,19 +791,33 @@ border: 1px solid #ccc;
     color: var(--primary--color);
     
 }
+.category-item:first-child::before{
+    display: none;
+}
 .category-item{
     font-size: 1.4rem;
     padding: 6px 16px;
+    position: relative;
+}
+.category-item::before{
+    content: "";
+    border-top: 1px solid #e1e1e1;
+    position: absolute;
+   
+    top: 0;
+    left: 16px;
+    right: 16px;
 }
 .category-item a{
     position: relative;
+    display: block;
     right: 0;
     color: var(--text-color);
-    transition: right linear 0.1s;
+  
 }
 .category-item a:hover{
     color: var(--primary--color);
-    right: -3px;
+  
 }
 .category-item--active a::before{
     content: "";
@@ -844,8 +879,8 @@ color: #ccc;
     background-color: var(--white-color);
     margin-top: 10px;
     position: relative;
-   box-shadow: 0 0 3px 2px #ccc;
-
+    box-shadow: 0 0 3px 2px #ccc;
+    border-radius: 3px;
    transition: transform linear 0.1s;
    display: block;
    text-decoration: none;
@@ -860,6 +895,7 @@ color: #ccc;
 
 }
 .home-product-item__img img{
+    border-radius: 3px;
     width: 100%;
 
 }
@@ -967,6 +1003,7 @@ color: #ccc;
     color: var(--text-color);
     font-size: 1.3rem;
     text-align: center;
+    border-top-right-radius: 3px;
 }
 .home-product-item__sale-off::after{
     content: "";
@@ -987,4 +1024,68 @@ color: #ccc;
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--white-color);
+}
+/* pagination */
+.pagination--home{
+    margin-top: 50px;
+    margin-bottom: 32px;
+}
+/* FOOTER */
+.footer{
+    padding-top: 15px;
+    border-top: 4px solid var(--primary--color);
+}
+.footer__heading{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+}
+.footer__list{
+ padding-left: 0;
+ 
+
+}
+.footer__list-item{
+    list-style: none;
+
+}
+.footer__list-item a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    padding: 10px 0 2px;
+    display: flex;
+    align-items: center;
+  
+
+}
+.footer__list-item a:hover{
+    color: var(--primary--color);
+}
+.footer__list-item a i{ 
+    font-size: 1.7rem;
+    margin-top: -1px;
+
+}
+.footer__dowload-qr{
+    width: 80px;
+    object-fit: contain;
+    border: 1px solid;
+}
+.footer__dowload{
+    display: flex;
+    width: 100%;
+}
+.footer__dowload-apps{
+    margin-left: 16px;
+}
+.footer__dowload-app-img{
+    height: 18px;
+}
+.footer__kk{
+    background-color: #ccc;
+    font-size: 1.4rem;
+    padding: 20px;
+    text-align: center;
+  
 }
